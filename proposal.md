@@ -1,4 +1,4 @@
-# Ping the Pong!
+# PING THE PONG!
 
 
 ## Repository
