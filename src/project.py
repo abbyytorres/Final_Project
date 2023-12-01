@@ -2,11 +2,11 @@ import pygame
 import sys
 import random
 
-pygame.init()
+
 width = 600
 height = 800
 screen = pygame.display.set_mode((width, height))
-pygame.display.set_caption('PING THE PONG!')
+
 
 white = (255, 255, 255)
 black = (0, 0, 0)
@@ -75,35 +75,41 @@ def mv_ball():
 
 
 
+def main(): 
 
-# main game Loop 
-
-running = True
-while running:
-    screen.fill(black)
-
-    backgrnd(image)
-    
-
-    pygame.draw.rect(screen, black, paddle_l)
-    pygame.draw.rect(screen, black, paddle_r)
-    pygame.draw.ellipse(screen, random_color, ball)
-    pygame.draw.aaline(screen, white,(width // 2, 0), 
-                       (width // 2, height))
-    
-
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-
-    mv_paddles()
-    mv_ball()
-    
-
-    pygame.display.flip()
-    clock= pygame.time.Clock()
-    clock.tick(60)
+    pygame.init()
+    pygame.display.set_caption('PING THE PONG!')
 
 
-pygame.quit()
-sys.exit()
+    running = True
+    while running:
+        screen.fill(black)
+
+        backgrnd(image)
+        
+
+        pygame.draw.rect(screen, black, paddle_l)
+        pygame.draw.rect(screen, black, paddle_r)
+        pygame.draw.ellipse(screen, random_color, ball)
+        pygame.draw.aaline(screen, white,(width // 2, 0), 
+                        (width // 2, height))
+        
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+
+        mv_paddles()
+        mv_ball()
+        
+
+        pygame.display.flip()
+        clock= pygame.time.Clock()
+        clock.tick(60)
+
+
+    pygame.quit()
+    sys.exit()
+
+if __name__ == "__main__":
+    main()
